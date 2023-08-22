@@ -1,0 +1,17 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = webapi.filmes.gabriel
+build_property.RootNamespace = webapi.filmes.gabriel
+build_property.ProjectDir = C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel
+build_property._RazorSourceGeneratorDebug = 
