@@ -47,5 +47,5 @@ namespace webapi.filmes.gabriel.Interfaces
         /// <param name="id"> ID do objeto a ser buscado </param>
         /// <returns> Objeto Buscado </returns>
         GeneroDomain BuscarPorId(int id);
-    }
+    }L
 }

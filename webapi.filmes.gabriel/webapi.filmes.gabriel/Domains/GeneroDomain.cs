@@ -10,6 +10,11 @@ namespace webapi.filmes.gabriel.Domains
         [Required(ErrorMessage = "O nome do Genêro é obrigatório!")]
         public int IdGenero { get; set; }
         public string? Nome { get; set; }
+
+        public static implicit operator GeneroDomain(FilmeDomain v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

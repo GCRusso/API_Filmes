@@ -4,6 +4,9 @@ namespace webapi.filmes.gabriel.Domains
 {
     public class FilmeDomain
     {
+        /// <summary>
+        /// Classe que representa a entidade(tabela) Filme
+        /// </summary>
         public int IdFilme { get; set; }
         public int IdGenero { get; set; }
         
