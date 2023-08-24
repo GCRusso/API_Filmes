@@ -18,32 +18,64 @@ namespace webapi.filmes.gabriel.Repositories
         /// </summary>
         private string StringConexao = "Data Source = NOTE17-S15; Initial Catalog = Filmes_Gabriel; User Id = sa; Pwd = Senai@134;";
 
-
+        //*************************************************************** ATUALIZAR ID CORPO *************************************************************************************
         public void AtualizarIdCorpo(GeneroDomain genero)
         {
             throw new NotImplementedException();
         }
-
+        //***************************************************************ATUALIZAR ID URL*************************************************************************************
         public void AtualizarIdUrl(int id, GeneroDomain genero)
         {
             throw new NotImplementedException();
         }
-
+        //***************************************************************BUSCAR POR ID*************************************************************************************
         public GeneroDomain BuscarPorId(int id)
         {
             throw new NotImplementedException();
         }
 
+
+
+        //***************************************************************CADASTRAR*************************************************************************************
+        /// <summary>
+        /// Cadastrar um novo Genero
+        /// </summary>
+        /// <param name="novoGenero"> Objeto com as informações que serão cadastradas </param>
+        /// <exception cref="NotImplementedException"></exception>
         public void Cadastrar(GeneroDomain novoGenero)
         {
-            throw new NotImplementedException();
+            //Declara a conexão passando a string de conexão como parametro
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                //Declara o que sera executado, utilize desta forma para CONCATENAR
+              string queryInsert = "INSERT INTO Genero(Nome) VALUES (' " + novoGenero.Nome + " ')";
+
+                
+                //Declara o SqlCommand passando a query que sera executada e a conexão
+                using (SqlCommand cmd = new SqlCommand(queryInsert,con))
+                {
+                    //Abre a conexão com o banco de dados, pode ser utilizado dnetro do primeiro ou do segundo USING
+                    con.Open();
+
+                    //comando para executar a queryInsert
+                    cmd.ExecuteNonQuery();    
+                }
+            }
         }
 
+
+
+
+        //***************************************************************DELETAR*************************************************************************************
         public void Deletar(int id)
         {
             throw new NotImplementedException();
         }
 
+
+
+
+        //***************************************************************LISTAR TODOS*************************************************************************************
         /// <summary>
         /// Objeto para listar todos os objetos Generos
         /// </summary>

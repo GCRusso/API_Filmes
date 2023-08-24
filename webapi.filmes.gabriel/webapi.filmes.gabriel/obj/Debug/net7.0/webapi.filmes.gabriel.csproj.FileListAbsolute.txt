@@ -57,3 +57,8 @@ C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabr
 C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\obj\Debug\net7.0\webapi.filmes.gabriel.pdb
 C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\obj\Debug\net7.0\webapi.filmes.gabriel.genruntimeconfig.cache
 C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\obj\Debug\net7.0\ref\webapi.filmes.gabriel.dll
+C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\obj\Debug\net7.0\webapi.filmes.gabriel.MvcApplicationPartsAssemblyInfo.cs

@@ -18,14 +18,22 @@ INSERT INTO Genero
 VALUES
 ('Comédia'),
 ('Ação'),
-('Suspense');
+('Suspense')
+('Terror');
 
 SELECT * FROM Genero
 
 INSERT INTO Filme
 VALUES
 (1,'Golpe Baixo'), 
-(2, 'Velozes e Furiosos'), 
+(2, 'Velozes e Furiosos'),
+(4, 'Arnaldo Schwarzenegger, O Bodybuilder da JALL'), 
 (3, 'Um Lugar Silencioso');
 
 SELECT * FROM Filme
+
+SELECT 
+	Genero.Nome,
+	Filme.Titulo
+FROM
+	Genero LEFT JOIN Filme ON Genero.IdGenero = Filme.IdGenero

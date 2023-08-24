@@ -35,7 +35,8 @@ namespace webapi.filmes.gabriel.Controllers
         {
             _generoRepository = new GeneroRepository();
         }
-
+        
+        //********************************************************************** GET ****************************************************************************
         /// <summary>
         /// Endpoint que aciona o metodo ListarTodos no repositorio
         /// </summary>
@@ -59,6 +60,32 @@ namespace webapi.filmes.gabriel.Controllers
                 return BadRequest(erro.Message);
             }
 
+        }
+        //********************************************************************** POST ****************************************************************************
+        /// <summary>
+        /// Endpoint que aciona o metodo de cadastro de genero
+        /// </summary>
+        /// <param name="novoGenero"></param>
+        /// <returns> Objeto recebido na requisição </returns>
+        [HttpPost]
+        public IActionResult Post(GeneroDomain novoGenero)
+        {
+
+            try
+            {
+                //_generoRepository utiliza os metodos, foi declarado no inicio do codigo
+                //Fazendo a chamada do metodo passando como parametro o objeto
+                _generoRepository.Cadastrar(novoGenero);
+
+                //Retorna um status code 201
+                return StatusCode(201);
+            }
+
+            catch (Exception erro)
+            {
+                //Retorna um BadRequest, mensagem de erro
+                return BadRequest(erro.Message);
+            }
         }
     }
 
