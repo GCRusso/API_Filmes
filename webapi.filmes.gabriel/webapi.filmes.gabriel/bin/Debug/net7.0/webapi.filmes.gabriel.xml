@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>webapi.filmes.gabriel</name>
+    </assembly>
+    <members>
+        <member name="P:webapi.filmes.gabriel.Controllers.GeneroController._generoRepository">
+            <summary>
+            Objeto _generoRepository que irá receber todos os métodos definidos na interface IGeneroRepository
+            </summary>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Controllers.GeneroController.#ctor">
+            <summary>
+            Instancia o objeto _generoRepository para que haja referencia aos metodos no repositorio
+            </summary>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Controllers.GeneroController.Get">
+            <summary>
+            Endpoint que aciona o metodo ListarTodos no repositorio
+            </summary>
+            <returns> retorna a respota para o usuario(front-end) </returns>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Controllers.GeneroController.Post(webapi.filmes.gabriel.Domains.GeneroDomain)">
+            <summary>
+            Endpoint que aciona o metodo de cadastro de genero
+            </summary>
+            <param name="novoGenero"></param>
+            <returns> Objeto recebido na requisição </returns>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Controllers.GeneroController.Delete(System.Int32)">
+            <summary>
+            Endpoint que aciona o método Deletar
+            </summary>
+            <param name="Id"></param>
+            <returns> Deleta o genero pelo ID </returns>
+        </member>
+        <member name="P:webapi.filmes.gabriel.Domains.FilmeDomain.IdFilme">
+            <summary>
+            Classe que representa a entidade(tabela) Filme
+            </summary>
+        </member>
+        <member name="T:webapi.filmes.gabriel.Domains.GeneroDomain">
+            <summary>
+            Classe que representa a entidade(tabela) Genero
+            </summary>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Interfaces.IFilmeRepository.Cadastrar(webapi.filmes.gabriel.Domains.FilmeDomain)">
+            <summary>
+            Cadastrar um novo Filme(Objeto)
+            </summary>
+            <param name="novoFilme"> Nome do novo filme(objeto) </param>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Interfaces.IFilmeRepository.ListarTodos">
+            <summary>
+            Listar todos os filmes(objetos) cadastrados
+            </summary>
+            <returns> Lista com os objetos </returns>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Interfaces.IFilmeRepository.AtualizarIdCorpo(webapi.filmes.gabriel.Domains.FilmeDomain)">
+            <summary>
+            Atualizar objeto existente passando pelo seu ID pelo corpo de requisição
+            </summary>
+            <param name="Filme"> Objeto atualizado (novas informações) </param>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Interfaces.IFilmeRepository.AtualizarUrl(System.Int32,webapi.filmes.gabriel.Domains.FilmeDomain)">
+            <summary>
+            Atualizar objeto existente passando o seu id pela url
+            </summary>
+            <param name="id"> ID do objeto que sera atualizado </param>
+            <param name="Filme"> Objeto atualizado (novas informações) </param>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Interfaces.IFilmeRepository.Deletar(System.Int32)">
+            <summary>
+            Deletar um objeto pelo ID
+            </summary>
+            <param name="id"> ID do objeto que sera deletado </param>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Interfaces.IFilmeRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar objeto pelo ID
+            </summary>
+            <param name="id"> Objeto buscado </param>
+            <returns></returns>
+        </member>
+        <member name="T:webapi.filmes.gabriel.Interfaces.IGeneroRepository">
+            <summary>
+            Interface responsável pelo repositório GeneroRepository
+            Definir os métodos que serão implementados pelo GeneroRepository
+            </summary>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Interfaces.IGeneroRepository.Cadastrar(webapi.filmes.gabriel.Domains.GeneroDomain)">
+            <summary>
+            Cadastrar um novo genero
+            </summary>
+            <param name="novoGenero"> Nome do novo genero (OBJETO) </param>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Interfaces.IGeneroRepository.ListarTodos">
+            <summary>
+            Listar todos os objetos cadastrados
+            </summary>
+            <returns> Lista com os objetos </returns>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Interfaces.IGeneroRepository.AtualizarIdCorpo(webapi.filmes.gabriel.Domains.GeneroDomain)">
+            <summary>
+            Atualizar objeto existente passando pelo seu ID pelo corpo de requisição
+            </summary>
+            <param name="genero"> Objeto atualizado (novas informações) </param>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Interfaces.IGeneroRepository.AtualizarIdUrl(System.Int32,webapi.filmes.gabriel.Domains.GeneroDomain)">
+            <summary>
+            Atualizar objeto existente passando o seu id pela url
+            </summary>
+            <param name="id"> ID do objeto que sera atualizado</param>
+            <param name="genero"> Objeto atualizado (novas informações) </param>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Interfaces.IGeneroRepository.Deletar(System.Int32)">
+            <summary>
+            Deletar o objeto
+            </summary>
+            <param name="id"> ID do objeto que será deletado </param>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Interfaces.IGeneroRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Busca um objeto através do seu ID 
+            </summary>
+            <param name="id"> ID do objeto a ser buscado </param>
+            <returns> Objeto Buscado </returns>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Repositories.FilmeRepository.ListarTodos">
+            <summary>
+            Método para listar todos os objetos Filmes
+            </summary>
+            <returns> Lista de objetos (Filme) </returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="F:webapi.filmes.gabriel.Repositories.GeneroRepository.StringConexao">
+            <summary>
+            String de conexão com o banco de dados que recebe os seguintes parâmetros
+            Data Source: Nome do Servidor
+            Initial Catalog: Nome do banco de dados
+            Atenticação:
+                - Windows: Integrated Security = true;
+                - SqlServer: User Id = inserir o usuario; pwd = inserir a senha;
+            </summary>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Repositories.GeneroRepository.Cadastrar(webapi.filmes.gabriel.Domains.GeneroDomain)">
+            <summary>
+            Cadastrar um novo Genero
+            </summary>
+            <param name="novoGenero"> Objeto com as informações que serão cadastradas </param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Repositories.GeneroRepository.Deletar(System.Int32)">
+            <summary>
+            Deletar um genero
+            </summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Repositories.GeneroRepository.ListarTodos">
+            <summary>
+            Objeto para listar todos os objetos Generos
+            </summary>
+            <returns> Lista de objetos (Genero) </returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+    </members>
+</doc>

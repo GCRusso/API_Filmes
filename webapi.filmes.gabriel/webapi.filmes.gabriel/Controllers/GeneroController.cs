@@ -87,6 +87,28 @@ namespace webapi.filmes.gabriel.Controllers
                 return BadRequest(erro.Message);
             }
         }
+
+        //********************************************************************** DELETE ****************************************************************************
+        /// <summary>
+        /// Endpoint que aciona o método Deletar
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns> Deleta o genero pelo ID </returns>
+        [HttpDelete("{Id}")]
+        public IActionResult Delete(int Id)
+        {
+            try
+            {
+                _generoRepository.Deletar(Id);
+
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+
+        }
     }
 
 }

@@ -18,16 +18,27 @@ namespace webapi.filmes.gabriel.Repositories
         /// </summary>
         private string StringConexao = "Data Source = NOTE17-S15; Initial Catalog = Filmes_Gabriel; User Id = sa; Pwd = Senai@134;";
 
+
+
+
         //*************************************************************** ATUALIZAR ID CORPO *************************************************************************************
         public void AtualizarIdCorpo(GeneroDomain genero)
         {
             throw new NotImplementedException();
         }
+
+
+
+
         //***************************************************************ATUALIZAR ID URL*************************************************************************************
         public void AtualizarIdUrl(int id, GeneroDomain genero)
         {
             throw new NotImplementedException();
         }
+
+
+
+
         //***************************************************************BUSCAR POR ID*************************************************************************************
         public GeneroDomain BuscarPorId(int id)
         {
@@ -47,13 +58,20 @@ namespace webapi.filmes.gabriel.Repositories
             //Declara a conexão passando a string de conexão como parametro
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                //Declara o que sera executado, utilize desta forma para CONCATENAR
-              string queryInsert = "INSERT INTO Genero(Nome) VALUES (' " + novoGenero.Nome + " ')";
+                /*Declara o que sera executado, utilize desta forma para CONCATENAR, 
+                 * porem assim da o erro conhecido como Joana D'arc, todos os caracteres especiais que for inserido da erro ao cadastrar
+              string queryInsert = "INSERT INTO Genero(Nome) VALUES (' " + novoGenero.Nome + " ')";*/
 
-                
+                //Assim evitamos o erro Joana D`arc
+                string queryInsert = "INSERT INTO Genero(Nome) VALUES (@Nome)";
+
+
                 //Declara o SqlCommand passando a query que sera executada e a conexão
                 using (SqlCommand cmd = new SqlCommand(queryInsert,con))
                 {
+                    //Passa o valor para o parâmetro @Nome
+                    cmd.Parameters.AddWithValue("@Nome", novoGenero.Nome);
+
                     //Abre a conexão com o banco de dados, pode ser utilizado dnetro do primeiro ou do segundo USING
                     con.Open();
 
@@ -67,9 +85,27 @@ namespace webapi.filmes.gabriel.Repositories
 
 
         //***************************************************************DELETAR*************************************************************************************
-        public void Deletar(int id)
+        /// <summary>
+        /// Deletar um genero
+        /// </summary>
+        /// <param name="Id"></param>
+        public void Deletar(int Id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryDelete = "DELETE FROM Filme WHERE IdGenero = @IdDelete";
+
+               
+
+                using (SqlCommand cmd = new SqlCommand(queryDelete,con))
+                {
+                    cmd.Parameters.AddWithValue("@IdDelete", Id);
+
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
 
