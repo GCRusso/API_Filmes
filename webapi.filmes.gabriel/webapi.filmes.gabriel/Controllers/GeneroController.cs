@@ -36,7 +36,7 @@ namespace webapi.filmes.gabriel.Controllers
             _generoRepository = new GeneroRepository();
         }
         
-        //********************************************************************** GET ****************************************************************************
+        //********************************************************************** GET  ****************************************************************************
         /// <summary>
         /// Endpoint que aciona o metodo ListarTodos no repositorio
         /// </summary>
@@ -105,6 +105,41 @@ namespace webapi.filmes.gabriel.Controllers
             }
             catch (Exception erro)
             {
+                return BadRequest(erro.Message);
+            }
+
+        }
+
+//**************************************************************************** GET BUSCAR POR ID ******************************************************
+
+        /// <summary>
+        /// Endpoint que aciona o metodo BuscarPorId
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns> Busca o Genero pelo ID </returns>
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            try
+            {
+                //se tiver acesso e estiver tudo certo ele entrega a lista de generos
+                //cria uma lista que recebe os dados da requisicao
+                GeneroDomain generoBuscado = _generoRepository.BuscarPorId(id);
+
+                //Verifica se nenhum gênero foi encontrado
+                if (generoBuscado == null)
+                {
+                    //Caso nao seja encontrado retorna esta mensagem personalizada e o erro 404
+                    return NotFound("Nenhum Gênero foi encontrado");
+                }
+
+                //retorna a lista com o formato JSON com o status code OK(200) 
+                return Ok(generoBuscado);
+            }
+            catch (Exception erro)
+            {
+                //se caso nao tiver acesso ou estiver algo errado ele entrega um erro
+                //Retorna um status code BadRequest(400) e a mensagem do erro
                 return BadRequest(erro.Message);
             }
 

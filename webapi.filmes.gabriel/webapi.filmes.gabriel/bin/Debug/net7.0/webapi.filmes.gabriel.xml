@@ -34,6 +34,13 @@
             <param name="Id"></param>
             <returns> Deleta o genero pelo ID </returns>
         </member>
+        <member name="M:webapi.filmes.gabriel.Controllers.GeneroController.GetById(System.Int32)">
+            <summary>
+            Endpoint que aciona o metodo BuscarPorId
+            </summary>
+            <param name="id"></param>
+            <returns> Busca o Genero pelo ID </returns>
+        </member>
         <member name="P:webapi.filmes.gabriel.Domains.FilmeDomain.IdFilme">
             <summary>
             Classe que representa a entidade(tabela) Filme
@@ -142,6 +149,13 @@
                 - Windows: Integrated Security = true;
                 - SqlServer: User Id = inserir o usuario; pwd = inserir a senha;
             </summary>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Repositories.GeneroRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um genero atraves do seu ID
+            </summary>
+            <param name="id"></param>
+            <returns> Objeto encontrado ou null caso nao seja encontrado </returns>
         </member>
         <member name="M:webapi.filmes.gabriel.Repositories.GeneroRepository.Cadastrar(webapi.filmes.gabriel.Domains.GeneroDomain)">
             <summary>
