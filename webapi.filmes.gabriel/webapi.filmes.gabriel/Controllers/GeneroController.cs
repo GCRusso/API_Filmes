@@ -110,7 +110,7 @@ namespace webapi.filmes.gabriel.Controllers
 
         }
 
-//**************************************************************************** GET BUSCAR POR ID ******************************************************
+        //**************************************************************************** GET BUSCAR POR ID ******************************************************
 
         /// <summary>
         /// Endpoint que aciona o metodo BuscarPorId
@@ -144,6 +144,30 @@ namespace webapi.filmes.gabriel.Controllers
             }
 
         }
+
+        //**************************************************************************** GET UPDATE PELO URL ******************************************************
+  /// <summary>
+  /// Endpoint que aciona o metodo ListarPorUrl
+  /// </summary>
+  /// <param name="id"></param>
+  /// <param name="Genero"></param>
+  /// <returns></returns>
+        [HttpPut("{id}")]
+        public IActionResult Put(int id,GeneroDomain Genero)
+        {
+            try
+            {
+                _generoRepository.AtualizarIdUrl(id, Genero);
+                return StatusCode(200);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro.Message);
+            }
+        }
+    
+    
     }
 
 }

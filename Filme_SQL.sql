@@ -37,3 +37,8 @@ SELECT
 	Filme.Titulo
 FROM
 	Genero LEFT JOIN Filme ON Genero.IdGenero = Filme.IdGenero
+
+UPDATE Genero
+SET Nome = 'Comedia'
+WHERE IdGenero = 6;
+

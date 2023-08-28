@@ -41,6 +41,14 @@
             <param name="id"></param>
             <returns> Busca o Genero pelo ID </returns>
         </member>
+        <member name="M:webapi.filmes.gabriel.Controllers.GeneroController.Put(System.Int32,webapi.filmes.gabriel.Domains.GeneroDomain)">
+            <summary>
+            Endpoint que aciona o metodo ListarPorUrl
+            </summary>
+            <param name="id"></param>
+            <param name="Genero"></param>
+            <returns></returns>
+        </member>
         <member name="P:webapi.filmes.gabriel.Domains.FilmeDomain.IdFilme">
             <summary>
             Classe que representa a entidade(tabela) Filme

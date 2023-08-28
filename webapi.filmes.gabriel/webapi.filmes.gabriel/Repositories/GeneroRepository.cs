@@ -34,7 +34,19 @@ namespace webapi.filmes.gabriel.Repositories
         //***************************************************************ATUALIZAR ID URL*************************************************************************************
         public void AtualizarIdUrl(int id, GeneroDomain genero)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryUpdateByUrl = "UPDATE Genero SET Nome = @novoNome WHERE IdGenero = @IdBuscado";
+
+                using (SqlCommand cmd = new SqlCommand(queryUpdateByUrl, con))
+                {
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@IdBuscado", id);
+                    cmd.Parameters.AddWithValue("@novoNome", genero.Nome);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
 
