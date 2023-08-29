@@ -36,7 +36,21 @@ namespace webapi.filmes.gabriel.Repositories
         //************************************************************************ CADASTRAR *******************************************************************
         public void Cadastrar(FilmeDomain novoFilme)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryInsert = "INSERT INTO Filme(Titulo, IdGenero) VALUES (@Titulo, @IdGenero)";
+
+                using (SqlCommand cmd = new SqlCommand(queryInsert, con))
+                {
+                    cmd.Parameters.AddWithValue("@Titulo", novoFilme.Titulo);
+                    cmd.Parameters.AddWithValue("@IdGenero", novoFilme.IdGenero);
+
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
         }
 
 
@@ -85,7 +99,7 @@ namespace webapi.filmes.gabriel.Repositories
 
                             genero = new GeneroDomain()
                             {
-
+                                IdGenero = Convert.ToInt32(rdr["IdGenero"]),
                                 Nome = Convert.ToString(rdr["Nome"])
 
                             }

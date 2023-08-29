@@ -59,8 +59,32 @@ namespace webapi.filmes.gabriel.Controllers
 
 
 
-        //**********************************************************************  DELETE  ****************************************************************************
+        //**********************************************************************  POST  ****************************************************************************
+        /// <summary>
+        /// Endpoint que aciona o metodo de cadastro de Filme
+        /// </summary>
+        /// <param name="novoFilme"></param>
+        /// <returns> Objeto recebido na requisição </returns>
+        [HttpPost]
+        public IActionResult Post(FilmeDomain novoFilme)
+        {
 
+            try
+            {
+                //_generoRepository utiliza os metodos, foi declarado no inicio do codigo
+                //Fazendo a chamada do metodo passando como parametro o objeto
+                _filmeRepository.Cadastrar(novoFilme);
+
+                //Retorna um status code 201
+                return StatusCode(201);
+            }
+
+            catch (Exception erro)
+            {
+                //Retorna um BadRequest, mensagem de erro
+                return BadRequest(erro.Message);
+            }
+        }
 
 
     }

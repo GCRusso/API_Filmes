@@ -20,6 +20,13 @@
             </summary>
             <returns> Retonar a resposta para o usuario (front-end) </returns>
         </member>
+        <member name="M:webapi.filmes.gabriel.Controllers.FilmesController.Post(webapi.filmes.gabriel.Domains.FilmeDomain)">
+            <summary>
+            Endpoint que aciona o metodo de cadastro de Filme
+            </summary>
+            <param name="novoFilme"></param>
+            <returns> Objeto recebido na requisição </returns>
+        </member>
         <member name="P:webapi.filmes.gabriel.Controllers.GeneroController._generoRepository">
             <summary>
             Objeto _generoRepository que irá receber todos os métodos definidos na interface IGeneroRepository
