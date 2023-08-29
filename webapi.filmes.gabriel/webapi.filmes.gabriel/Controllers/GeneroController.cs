@@ -10,7 +10,8 @@ namespace webapi.filmes.gabriel.Controllers
     //Define que a rota de uma requisição será no seguinte formato
     //Dominio/api/nomecontroller
     //Ex: http://localhost:5000/api/genero
-    [Route("api/[controller]")]
+   [Route("api/[controller]")]
+    
 
     //Define que é um controlador API
     [ApiController]
@@ -36,6 +37,9 @@ namespace webapi.filmes.gabriel.Controllers
             _generoRepository = new GeneroRepository();
         }
         
+
+
+
         //********************************************************************** GET  ****************************************************************************
         /// <summary>
         /// Endpoint que aciona o metodo ListarTodos no repositorio
@@ -145,15 +149,15 @@ namespace webapi.filmes.gabriel.Controllers
 
         }
 
-        //**************************************************************************** GET UPDATE PELO URL ******************************************************
-  /// <summary>
-  /// Endpoint que aciona o metodo ListarPorUrl
-  /// </summary>
-  /// <param name="id"></param>
-  /// <param name="Genero"></param>
-  /// <returns></returns>
+        //**************************************************************************** PUT UPDATE PELO URL ******************************************************
+        /// <summary>
+        /// Endpoint que aciona o metodo AtualizarIdUrl
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="Genero"></param>
+        /// <returns> Pesquisa o IdGenero pelo URL e altera o Nome </returns>
         [HttpPut("{id}")]
-        public IActionResult Put(int id,GeneroDomain Genero)
+        public IActionResult Put(int id, GeneroDomain Genero)
         {
             try
             {
@@ -166,8 +170,29 @@ namespace webapi.filmes.gabriel.Controllers
                 return BadRequest(erro.Message);
             }
         }
-    
-    
+
+        // //**************************************************************************** PUT UPDATE PELO CORPO ******************************************************
+
+        /// <summary>
+        /// Endpoint que aciona o metodo AtualizarIdCorpo
+        /// </summary>
+        /// <param name="Genero"></param>
+        /// <returns> Insere o IdGenero e o Nome de genero no corpo para atualizar o Nome </returns>
+        [HttpPut]
+        public IActionResult Puts(GeneroDomain Genero)
+        {
+            try
+            {
+                _generoRepository.AtualizarIdCorpo(Genero);
+                return StatusCode(200);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro.Message);
+            }
+        }
+
     }
 
 }

@@ -25,9 +25,20 @@ namespace webapi.filmes.gabriel.Repositories
         //*************************************************************** ATUALIZAR ID CORPO *************************************************************************************
         public void AtualizarIdCorpo(GeneroDomain genero)
         {
-            throw new NotImplementedException();
-        }
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryUpdateByUrl = "UPDATE Genero SET Nome = @novoNome WHERE IdGenero = @novoId";
 
+                using (SqlCommand cmd = new SqlCommand(queryUpdateByUrl, con))
+                {
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@novoId", genero.IdGenero);
+                    cmd.Parameters.AddWithValue("@novoNome", genero.Nome);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
 
 
 
@@ -139,11 +150,11 @@ namespace webapi.filmes.gabriel.Repositories
 
 
 
-                //***************************************************************DELETAR*************************************************************************************
+                //***************************************************************  DELETAR PELO ID  *************************************************************************************
                 /// <summary>
                 /// Deletar um genero
                 /// </summary>
-                /// <param name="Id"></param>
+                /// <param name="Id"> Deleta um genero atraves do seu ID </param>
                 public void Deletar(int Id)
                 {
                     using (SqlConnection con = new SqlConnection(StringConexao))

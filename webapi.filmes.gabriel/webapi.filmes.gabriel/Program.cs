@@ -43,7 +43,7 @@ app.UseSwaggerUI(options =>
     options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
     options.RoutePrefix = string.Empty;
 });
-// Termina a configuracao do SWAGGER
+// Termina a configuracao do SWAGGERS
 
 //Adiciona o mapeamento dos controllers
 app.MapControllers();
