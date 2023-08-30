@@ -162,7 +162,7 @@ namespace webapi.filmes.gabriel.Controllers
             try
             {
                 _generoRepository.AtualizarIdUrl(id, Genero);
-                return StatusCode(200);
+                return StatusCode(204); 
             }
             catch (Exception erro)
             {
@@ -184,7 +184,7 @@ namespace webapi.filmes.gabriel.Controllers
             try
             {
                 _generoRepository.AtualizarIdCorpo(Genero);
-                return StatusCode(200);
+                return StatusCode(204);
             }
             catch (Exception erro)
             {

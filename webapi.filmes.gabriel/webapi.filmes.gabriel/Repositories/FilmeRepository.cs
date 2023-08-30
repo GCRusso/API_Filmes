@@ -7,33 +7,114 @@ namespace webapi.filmes.gabriel.Repositories
     public class FilmeRepository : IFilmeRepository
     {
         private string StringConexao = "Data Source = NOTE17-S15; Initial Catalog = Filmes_Gabriel; User Id = sa; Pwd = Senai@134; TrustServerCertificate = true";
+
+    
+
+        //************************************************************************ ATUALIZAR ID PELO CORPO *******************************************************************
+        /// <summary>
+        /// Método para atualizar Filme pelo ID CORPO
+        /// </summary>
+        /// <param name="Filme"></param>
+        /// <exception cref="NotImplementedException"></exception>
         public void AtualizarIdCorpo(FilmeDomain Filme)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryUpdateByBody = "UPDATE Filme SET Titulo = @novoTitulo, IdGenero = @novoIdGenero WHERE IdFilme = @buscaIdFilme";
+
+                using (SqlCommand cmd = new SqlCommand(queryUpdateByBody, con))
+                {
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@novoTitulo", Filme.Titulo);
+                    cmd.Parameters.AddWithValue("@buscaIdFilme",Filme.IdFilme);
+                    cmd.Parameters.AddWithValue("@novoIdGenero", Filme.IdGenero);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+            }
         }
 
 
 
-
         //************************************************************************ ATUALIZAR ID PELO URL *******************************************************************
+        /// <summary>
+        /// Método para atualizar Filme pelo ID URL
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="Filme"></param>
         public void AtualizarUrl(int id, FilmeDomain Filme)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryUpdateByUrl = "UPDATE Filme SET Titulo = @novoFilme, IdGenero = @novoIdGenero WHERE IdFilme = @IdBuscado";
+
+                using (SqlCommand cmd = new SqlCommand(queryUpdateByUrl, con))
+                {
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@IdBuscado", id);
+                    cmd.Parameters.AddWithValue("@novoFilme", Filme.Titulo);
+                    cmd.Parameters.AddWithValue("@novoIdGenero",Filme.IdGenero);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
 
 
 
         //************************************************************************ BUSCAR POR ID *******************************************************************
+        /// <summary>
+        /// Metodo para buscar filme pelo ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns> Titulo do Filme buscado </returns>
         public FilmeDomain BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string querySelectById = "SELECT IdFilme, Titulo FROM Filme WHERE IdFilme = @IdBuscado";
+
+                con.Open();
+
+                SqlDataReader rdr;
+
+                using (SqlCommand cmd = new SqlCommand(querySelectById, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdBuscado", id);
+                    
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        FilmeDomain filmeBuscado = new FilmeDomain()
+                        {
+                            IdFilme = Convert.ToInt32(rdr["IdFilme"]),
+
+                            Titulo = rdr["Titulo"].ToString()
+
+                        };
+
+                        return filmeBuscado;
+                    }
+
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
         }
 
 
 
 
         //************************************************************************ CADASTRAR *******************************************************************
+        /// <summary>
+        /// Método para cadastrar Filmes
+        /// </summary>
+        /// <param name="novoFilme"></param>
         public void Cadastrar(FilmeDomain novoFilme)
         {
             using (SqlConnection con = new SqlConnection(StringConexao))
@@ -42,7 +123,6 @@ namespace webapi.filmes.gabriel.Repositories
 
                 using (SqlCommand cmd = new SqlCommand(queryInsert, con))
                 {
-                    cmd.Parameters.AddWithValue("@Titulo", novoFilme.Titulo);
                     cmd.Parameters.AddWithValue("@IdGenero", novoFilme.IdGenero);
 
                     con.Open();
@@ -59,10 +139,25 @@ namespace webapi.filmes.gabriel.Repositories
 
         //************************************************************************ DELETAR PELO ID*******************************************************************
 
-
+        /// <summary>
+        /// Método para deletar Filmes
+        /// </summary>
+        /// <param name="id"></param>
         void IFilmeRepository.Deletar(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryDelete = "DELETE FROM Filme WHERE IdFilme = @IdDelete";
+
+                using (SqlCommand cmd = new SqlCommand(queryDelete, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdDelete", id);
+
+                    con.Open(); 
+
+                    cmd.ExecuteNonQuery();  
+                }
+            }
         }
 
 

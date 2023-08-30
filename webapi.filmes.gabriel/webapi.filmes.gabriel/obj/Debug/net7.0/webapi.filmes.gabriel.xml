@@ -20,12 +20,41 @@
             </summary>
             <returns> Retonar a resposta para o usuario (front-end) </returns>
         </member>
+        <member name="M:webapi.filmes.gabriel.Controllers.FilmesController.GetById(System.Int32)">
+            <summary>
+            Endpoint que aciona o método BuscarPorId 
+            </summary>
+            <param name="id"></param>
+            <returns> Retorna o objeto pedido na requisição </returns>
+        </member>
         <member name="M:webapi.filmes.gabriel.Controllers.FilmesController.Post(webapi.filmes.gabriel.Domains.FilmeDomain)">
             <summary>
             Endpoint que aciona o metodo de cadastro de Filme
             </summary>
             <param name="novoFilme"></param>
             <returns> Objeto recebido na requisição </returns>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Controllers.FilmesController.Delete(System.Int32)">
+            <summary>
+            Endpoint que aciona o método Delete
+            </summary>
+            <param name="id"></param>
+            <returns> Deleta o Filme cadastrado através do seu ID </returns>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Controllers.FilmesController.Put(System.Int32,webapi.filmes.gabriel.Domains.FilmeDomain)">
+            <summary>
+            Endpoint que aciona o método AtualizarUrl
+            </summary>
+            <param name="id"></param>
+            <param name="Filme"></param>
+            <returns> Atualiza o Filme cadastrado pelo url </returns>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Controllers.FilmesController.Put(webapi.filmes.gabriel.Domains.FilmeDomain)">
+            <summary>
+            Endpoint que aciona o método AtualizarIdCorpo
+            </summary>
+            <param name="Filme"></param>
+            <returns></returns>
         </member>
         <member name="P:webapi.filmes.gabriel.Controllers.GeneroController._generoRepository">
             <summary>
@@ -171,6 +200,39 @@
             <param name="id"> ID do objeto a ser buscado </param>
             <returns> Objeto Buscado </returns>
         </member>
+        <member name="M:webapi.filmes.gabriel.Repositories.FilmeRepository.AtualizarIdCorpo(webapi.filmes.gabriel.Domains.FilmeDomain)">
+            <summary>
+            Método para atualizar Filme pelo ID CORPO
+            </summary>
+            <param name="Filme"></param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Repositories.FilmeRepository.AtualizarUrl(System.Int32,webapi.filmes.gabriel.Domains.FilmeDomain)">
+            <summary>
+            Método para atualizar Filme pelo ID URL
+            </summary>
+            <param name="id"></param>
+            <param name="Filme"></param>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Repositories.FilmeRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Metodo para buscar filme pelo ID
+            </summary>
+            <param name="id"></param>
+            <returns> Titulo do Filme buscado </returns>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Repositories.FilmeRepository.Cadastrar(webapi.filmes.gabriel.Domains.FilmeDomain)">
+            <summary>
+            Método para cadastrar Filmes
+            </summary>
+            <param name="novoFilme"></param>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Repositories.FilmeRepository.webapi#filmes#gabriel#Interfaces#IFilmeRepository#Deletar(System.Int32)">
+            <summary>
+            Método para deletar Filmes
+            </summary>
+            <param name="id"></param>
+        </member>
         <member name="M:webapi.filmes.gabriel.Repositories.FilmeRepository.ListarTodos">
             <summary>
             Método para listar todos os objetos Filmes
@@ -187,6 +249,19 @@
                 - Windows: Integrated Security = true;
                 - SqlServer: User Id = inserir o usuario; pwd = inserir a senha;
             </summary>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Repositories.GeneroRepository.AtualizarIdCorpo(webapi.filmes.gabriel.Domains.GeneroDomain)">
+            <summary>
+            Atualizar um genero atraves do ID CORPO
+            </summary>
+            <param name="genero"></param>
+        </member>
+        <member name="M:webapi.filmes.gabriel.Repositories.GeneroRepository.AtualizarIdUrl(System.Int32,webapi.filmes.gabriel.Domains.GeneroDomain)">
+            <summary>
+            Atualizar um genero atraves do ID URL
+            </summary>
+            <param name="id"></param>
+            <param name="genero"></param>
         </member>
         <member name="M:webapi.filmes.gabriel.Repositories.GeneroRepository.BuscarPorId(System.Int32)">
             <summary>

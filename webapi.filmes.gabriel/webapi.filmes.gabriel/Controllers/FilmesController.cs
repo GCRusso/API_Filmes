@@ -58,6 +58,32 @@ namespace webapi.filmes.gabriel.Controllers
         }
 
 
+        //**************************************************************************** GET BUSCAR POR ID ******************************************************
+        /// <summary>
+        /// Endpoint que aciona o método BuscarPorId 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns> Retorna o objeto pedido na requisição </returns>
+        
+        [HttpGet("{id}")]
+
+        public IActionResult GetById(int id)
+        {
+            try
+            {
+                FilmeDomain filmeBuscado = _filmeRepository.BuscarPorId(id);
+                if (filmeBuscado == null)
+                {
+                    return NotFound("Nenhum Gênero foi encontrado");
+                }
+
+                return Ok(filmeBuscado);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+        }
 
         //**********************************************************************  POST  ****************************************************************************
         /// <summary>
@@ -86,6 +112,74 @@ namespace webapi.filmes.gabriel.Controllers
             }
         }
 
+        //**********************************************************************  DELETE  ****************************************************************************
+       /// <summary>
+       /// Endpoint que aciona o método Delete
+       /// </summary>
+       /// <param name="id"></param>
+       /// <returns> Deleta o Filme cadastrado através do seu ID </returns>
+        [HttpDelete("{id}")]
+
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                _filmeRepository.Deletar(id);
+
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+
+        }
+
+
+        //**************************************************************************** PUT UPDATE PELO URL ******************************************************
+        /// <summary>
+        /// Endpoint que aciona o método AtualizarUrl
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="Filme"></param>
+        /// <returns> Atualiza o Filme cadastrado pelo url </returns>
+        [HttpPut("{id}")]
+
+        public IActionResult Put(int id, FilmeDomain Filme)
+        {
+            try
+            {
+                _filmeRepository.AtualizarUrl(id, Filme);
+                return StatusCode(204);
+            }
+
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+        }
+
+        // //**************************************************************************** PUT UPDATE PELO CORPO ******************************************************
+
+        /// <summary>
+        /// Endpoint que aciona o método AtualizarIdCorpo
+        /// </summary>
+        /// <param name="Filme"></param>
+        /// <returns></returns>
+        [HttpPut]
+
+        public IActionResult Put(FilmeDomain Filme)
+        {
+            try
+            {
+                _filmeRepository.AtualizarIdCorpo(Filme);
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+        }
 
     }
 

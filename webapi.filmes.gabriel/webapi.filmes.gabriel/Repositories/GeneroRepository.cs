@@ -23,13 +23,17 @@ namespace webapi.filmes.gabriel.Repositories
 
 
         //*************************************************************** ATUALIZAR ID CORPO *************************************************************************************
+       /// <summary>
+       /// Atualizar um genero atraves do ID CORPO
+       /// </summary>
+       /// <param name="genero"></param>
         public void AtualizarIdCorpo(GeneroDomain genero)
         {
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                string queryUpdateByUrl = "UPDATE Genero SET Nome = @novoNome WHERE IdGenero = @novoId";
+                string queryUpdateByBody = "UPDATE Genero SET Nome = @novoNome WHERE IdGenero = @novoId";
 
-                using (SqlCommand cmd = new SqlCommand(queryUpdateByUrl, con))
+                using (SqlCommand cmd = new SqlCommand(queryUpdateByBody, con))
                 {
                     con.Open();
                     cmd.Parameters.AddWithValue("@novoId", genero.IdGenero);
@@ -43,6 +47,11 @@ namespace webapi.filmes.gabriel.Repositories
 
 
         //***************************************************************ATUALIZAR ID URL*************************************************************************************
+        /// <summary>
+        /// Atualizar um genero atraves do ID URL
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="genero"></param>
         public void AtualizarIdUrl(int id, GeneroDomain genero)
         {
             using (SqlConnection con = new SqlConnection(StringConexao))
@@ -113,7 +122,7 @@ namespace webapi.filmes.gabriel.Repositories
                 }
             }
         }
-                //***************************************************************CADASTRAR*************************************************************************************
+                //*************************************************************** CADASTRAR  *************************************************************************************
                 /// <summary>
                 /// Cadastrar um novo Genero
                 /// </summary>
@@ -175,7 +184,7 @@ namespace webapi.filmes.gabriel.Repositories
 
 
 
-                //***************************************************************LISTAR TODOS*************************************************************************************
+                //***************************************************************  LISTAR TODOS  *************************************************************************************
                 /// <summary>
                 /// Objeto para listar todos os objetos Generos
                 /// </summary>
