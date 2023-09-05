@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using webapi.filmes.gabriel.Domains;
@@ -46,6 +47,9 @@ namespace webapi.filmes.gabriel.Controllers
         /// </summary>
         /// <returns> retorna a respota para o usuario(front-end) </returns>
         [HttpGet]
+
+        //Aqui voce limita quem pode acessar este método, no caso inseri 0 e 1 pois será o usuário comum e o adiministrador.
+        [Authorize (Roles = "True")]
         public IActionResult Get()
         {
             try
@@ -72,6 +76,10 @@ namespace webapi.filmes.gabriel.Controllers
         /// <param name="novoGenero"></param>
         /// <returns> Objeto recebido na requisição </returns>
         [HttpPost]
+
+        //Aqui voce limita quem pode acessar este método, no caso inseri 1 pois será apenas o usuário adiministrador.
+        [Authorize(Roles = "True")]
+
         public IActionResult Post(GeneroDomain novoGenero)
         {
 
@@ -99,6 +107,8 @@ namespace webapi.filmes.gabriel.Controllers
         /// <param name="Id"></param>
         /// <returns> Deleta o genero pelo ID </returns>
         [HttpDelete("{Id}")]
+
+        [Authorize(Roles = "True")]
         public IActionResult Delete(int Id)
         {
             try
@@ -122,6 +132,8 @@ namespace webapi.filmes.gabriel.Controllers
         /// <param name="id"></param>
         /// <returns> Busca o Genero pelo ID </returns>
         [HttpGet("{id}")]
+
+        [Authorize(Roles = "True, False")]
         public IActionResult GetById(int id)
         {
             try
@@ -157,6 +169,8 @@ namespace webapi.filmes.gabriel.Controllers
         /// <param name="Genero"></param>
         /// <returns> Pesquisa o IdGenero pelo URL e altera o Nome </returns>
         [HttpPut("{id}")]
+
+        [Authorize(Roles = "True")]
         public IActionResult Put(int id, GeneroDomain Genero)
         {
             try
@@ -179,6 +193,8 @@ namespace webapi.filmes.gabriel.Controllers
         /// <param name="Genero"></param>
         /// <returns> Insere o IdGenero e o Nome de genero no corpo para atualizar o Nome </returns>
         [HttpPut]
+
+        [Authorize(Roles = "True")]
         public IActionResult Puts(GeneroDomain Genero)
         {
             try
