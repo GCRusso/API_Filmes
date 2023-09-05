@@ -64,3 +64,11 @@ C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabr
 C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\obj\Debug\net7.0\webapi.filmes.gabriel.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\bin\Debug\net7.0\webapi.filmes.gabriel.xml
 C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\obj\Debug\net7.0\webapi.filmes.gabriel.xml
+C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\23655858841\Desktop\API_Filmes\webapi.filmes.gabriel\webapi.filmes.gabriel\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

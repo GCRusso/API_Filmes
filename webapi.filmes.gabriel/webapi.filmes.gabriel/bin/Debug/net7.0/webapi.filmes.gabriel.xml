@@ -112,7 +112,7 @@
             <summary>
             Endpoint que aciona o método Login
             </summary>
-            <returns> </returns>
+            <returns> Retorna os dados do usuário caso encontrado </returns>
         </member>
         <member name="P:webapi.filmes.gabriel.Domains.FilmeDomain.IdFilme">
             <summary>
